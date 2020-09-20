@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Searchbar = ({textcolor, search, handleSearch, categories, selectCategory}) => {
+const Searchbar = ({textcolor, handleSearch, categories, selectCategory}) => {
 	
 	const [isOpen, changeState] = useState(false)
     return <>
@@ -10,7 +10,7 @@ const Searchbar = ({textcolor, search, handleSearch, categories, selectCategory}
 				<span className="flex items-center text-black p-1">
 					<i className="material-icons text-3xl">search</i>
 				</span>
-				<input className="w-full rounded focus:outline-none" type="text" placeholder="Busca tu platillo favorito..."/>
+				<input onChange={(event) => handleSearch(event.target.value)} className="w-full rounded focus:outline-none" type="text" placeholder="Busca tu platillo favorito..."/>
 			</div>
 			<div className="sm:hidden">
 				<button onClick={()=>changeState(!isOpen)}>

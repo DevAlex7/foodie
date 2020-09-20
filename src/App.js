@@ -7,14 +7,14 @@ import {
 } from 'react-router-dom'
 
 //components 
-import Landing from './pages/landing'
+import Home from './pages/home/base'
 import Menu from './pages/menu'
 
 function App() {
   return (
     <Router>
         <Switch>
-            <Route exact path='/' component={Landing}/>
+            <Route exact path='/' component={Home}/>
             <Route exact path='/menu' component={Menu}/>
         </Switch>
     </Router>

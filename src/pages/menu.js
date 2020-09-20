@@ -3,6 +3,7 @@ import Navbar from '../components/navbar'
 import Hamburguer from '../assets/menu-hamburguer.png'
 import Searchbar from '../components/searchbar'
 import axios from 'axios'
+import Footer from '../components/footer'
 
 const Menu = () => {
     const [categories, setCategories] = useState([])
@@ -18,7 +19,15 @@ const Menu = () => {
     const fetchMenu = async () => {
         const {data} = await axios.get('https://api.elaniin.dev/api/menu')
         setMenu(data.data)
-        
+    }
+
+    const searchMenu = async value => {
+        const {data} = await axios.get('https://api.elaniin.dev/api/menu',{
+            params:{
+                query: value
+            }
+        })
+        setMenu(data.data)
     }
 
     const selectCategory = async id => {
@@ -67,6 +76,7 @@ const Menu = () => {
                 <Searchbar
                     categories={categories}
                     selectCategory={selectCategory}
+                    handleSearch={searchMenu}
                 />
                 <div className="flex flex-wrap px-2">
                     {
@@ -97,7 +107,7 @@ const Menu = () => {
                     }       
                  </div>
             </div>
-
+            <Footer/>
         </div>
     </>
 
