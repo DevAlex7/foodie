@@ -15,6 +15,7 @@ function App() {
     <Router>
         <Switch>
             <Route exact path='/' component={Landing}/>
+            <Route exact path='/menu' component={Menu}/>
         </Switch>
     </Router>
   );
