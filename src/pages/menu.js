@@ -68,7 +68,7 @@ const Menu = () => {
                         
                     </div>
                     <div className="w-full md:w-1/2 md:-mt-16 flex md:justify-center">
-                        <img className="md:h-72" src={Hamburguer}/>
+                        <img className="h-64 md:h-72" src={Hamburguer}/>
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@ const Menu = () => {
                                                 <p>{item.description}</p>                                        
                                                 <div className="flex justify-between py-4">
                                                     <span className="text-sm">{item.category}</span>
-                                                    <span className="bg-yellow-foodie rounded font-title px-3">{item.price}</span>
+                                                    <span className="bg-yellow-foodie rounded font-title px-3">${item.price}</span>
                                                 </div>   
                                             </div>
                                             

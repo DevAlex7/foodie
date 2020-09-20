@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Navbar from '../../components/navbar'
 
-import axios from 'axios'
-import Step from '../../components/steps'
 
 import Header from '../home/sections/header'
 import KnowStore from '../home/sections/knowstore'
