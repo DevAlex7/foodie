@@ -40,7 +40,7 @@ const FormSection = () => {
 
 
     return <>
-        <div className="bg-black p-5 md:p-32">
+        <div className="bg-black p-5 md:p-32" id="contact">
             <h1 className="font-title text-white text-3xl text-center">Cuentanos tu experiencia</h1>
             <p className="text-white text-center">Don't miss out on our great offers & Receive deals from all our
             top restaurants via e-mail.</p>

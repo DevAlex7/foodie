@@ -4,7 +4,7 @@ import { ArrowForward } from '@material-ui/icons';
 
 const KnowStore = () => {
     return <> 
-        <div className="w-full flex flex-wrap">
+        <div className="w-full flex flex-wrap mt-16 md:mt-0">
             <div className="w-full sm:w-full md:w-1/2">
                 <figure className="bg-black relative">
                     <img src={photo} className="opacity-100 bg-cover w-full"/>

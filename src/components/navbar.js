@@ -5,7 +5,7 @@ import Item from './itemNavbar'
 const Navbar = ({textcolor}) => {
     const [isOpen, changeState] = useState(false)
     return <>
-      <div className={`sm:flex w-full justify-between sm:justify-between sm:items-center md:px-24 py-5 md:py-10 md:justify-start px-0 sm:px-2 sm:py-2 ${textcolor}`}>
+      <div className={`sm:flex w-full justify-between sm:justify-between bg-transparent sm:items-center md:px-24 py-5 md:py-10 md:justify-start px-0 sm:px-2 sm:py-2 ${textcolor}`}>
 			<div className="flex items-center px-4 justify-between py-2 sm:p-0">
 			<div>
 				<a href="/" className="font-bold text-xl md:text-4xl font-title">Foodies</a>
@@ -21,14 +21,20 @@ const Navbar = ({textcolor}) => {
 				</button>
 			</div>
 			</div>
-			<div className={`px-2 pt-2 pb-4 ${isOpen ? 'block' : 'hidden'} md:ml-24 rounded-b-lg bg-white md:bg-transparent font-title sm:flex sm:p-0`}>
-				<a className="mt-1 block sm:inline-block px-2 py-1  hover:underline rounded sm:mt-0 sm:ml-2"> Acerca de </a>
-				<a className="mt-1 block sm:inline-block px-2 py-1  hover:underline rounded sm:mt-0 sm:ml-2"> Restaurantes </a>
+			<div className={`px-2 pt-2 pb-4 ${isOpen ? 'block' : 'hidden'} cursor-pointer md:ml-24 rounded-b-lg bg-white md:bg-transparent font-title sm:flex sm:p-0`}>
+				<a onClick={()=>{
+					document.getElementById('about').scrollIntoView({ behavior: "smooth" })
+				}} className="mt-1 block sm:inline-block px-2 py-1 hover:bg-yellow-foodie hover:text-black rounded sm:mt-0 sm:ml-2"> Acerca de </a>
+				<a onClick={()=>{
+					document.getElementById('locations').scrollIntoView({ behavior: "smooth" })
+				}} className="mt-1 block sm:inline-block px-2 py-1  hover:bg-yellow-foodie hover:text-black rounded sm:mt-0 sm:ml-2"> Restaurantes </a>
 				<Link
-				className="mt-1 block sm:inline-block px-2 py-1  hover:underline rounded sm:mt-0 sm:ml-2"
+				className="mt-1 block sm:inline-block px-2 py-1 bg-yellow-foodie text-black rounded sm:mt-0 sm:ml-2"
 				to='/menu'
 				>Menú</Link>
-				<a href="/contactus" className="mt-1 block sm:inline-block px-2 py-1  hover:underline rounded sm:mt-0 sm:ml-2"> Contáctanos </a>
+				<a onClick={()=>{
+					document.getElementById('contact').scrollIntoView({ behavior: "smooth" })
+				}} className="mt-1 block sm:inline-block px-2 py-1  hover:bg-yellow-foodie hover:text-black rounded sm:mt-0 sm:ml-2"> Contáctanos </a>
 			</div>
       </div>
     </>

@@ -2,7 +2,7 @@ import React from 'react'
 import Step from '../../../components/steps'
 const About = () => {
     return <>
-        <div className="w-full p-10">
+        <div className="w-full p-10" id="about">
             <div className='flex justify-center'>
                 <ul className="list-disc list-inside text-4xl">
                     <p className="font-title">Obten más beneficios</p>

@@ -9,6 +9,8 @@ const Menu = () => {
     const [categories, setCategories] = useState([])
     const [menu, setMenu] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [page, setPage] = useState(1)
+    const [links, setLinks] = useState('')
 
     useEffect(()=> {
         fetchMenu()
@@ -16,9 +18,24 @@ const Menu = () => {
         setIsLoading(false)
     },[])
 
-    const fetchMenu = async () => {
-        const {data} = await axios.get('https://api.elaniin.dev/api/menu')
+    const changePage = async page => {
+        setPage(page)
+        const {data} = await axios.get('https://api.elaniin.dev/api/menu',{
+            params:{
+                page : page
+            }
+        })
         setMenu(data.data)
+    }
+
+    const fetchMenu = async () => {
+        const {data} = await axios.get('https://api.elaniin.dev/api/menu',{
+            params:{
+                page : 1
+            }
+        })
+        setMenu(data.data)
+        setLinks(data.links)
     }
 
     const searchMenu = async value => {
@@ -105,6 +122,20 @@ const Menu = () => {
                         :
                         <h1>No results</h1>
                     }       
+                 </div>
+                 <div className="flex justify-center py-5">
+                    {
+                        page == 2 ?
+                        <div onClick={()=> changePage(1)} className="inline-block bg-black text-yellow-foodie rounded text-center px-4 py-2 m-2">Anterior</div> 
+                        : ''
+                    }
+                    <div onClick={()=> changePage(1)} className={`inline-block ${page == 1 ? 'bg-black text-yellow-foodie' : ''} rounded text-center cursor-pointer px-4 py-2 m-2`}>1</div>
+                    <div onClick={()=> changePage(2)} className={`inline-block ${page == 2 ? 'bg-black text-yellow-foodie' : ''} border border-gray-200 hover:bg-black hover:text-yellow-foodie cursor-pointer rounded text-center px-4 py-2 m-2`}>2</div>
+                    {
+                        page == 1 ? 
+                        <div onClick={()=> changePage(2)} className="inline-block bg-black text-yellow-foodie rounded text-center px-4 py-2 m-2">Siguiente</div>
+                        : ''
+                    }
                  </div>
             </div>
             <Footer/>
