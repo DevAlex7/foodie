@@ -5,17 +5,18 @@ import mustard from '../../../assets/Subtract.png'
 import Navbar from '../../../components/navbar'
 const Header = () => {
     return <>
-        <div className="w-full h-80 md:h-auto">
+        <div className="w-full h-82 md:h-auto">
             <div className="flex relative justify-end">
                 <img src={mustard}/>
                 <div className="absolute">
                     <Navbar
                     textcolor="text-black"
+                    active={false}
                     />
-                    <div className="flex flex-wrap md:mt-24 w-full">
+                    <div className="flex flex-wrap md:mt-2 w-full">
                         <div className="w-full order-last md:order-first px-4 md:w-1/2 md:py-16 md:px-24">
                             <ul className="list-disc list-inside text-4xl">
-                                <p className="font-title">Un nuevo</p>
+                                <span className="font-title">Un nuevo</span>
                                 <p className="font-title">sabor esta en</p>
                                 <div className="font-title absolute h-8 bg-yellow-foodie w-64 -mx-4 pl-4">
                                     <p className="-mt-4">la ciudad</p>

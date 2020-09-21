@@ -1,6 +1,32 @@
-import React from 'react'
+import React, {useState} from 'react'
+import {
+    KeyboardArrowLeft,
+    KeyboardArrowRight
+} from '@material-ui/icons'
 
 const Testimonials = () => {
+    
+    const [testimonial_index, setIndexTestimonial] = useState(0+1) 
+
+    const [testimonials, setTestimonials] = useState(
+        [
+            {
+                id: 1,
+                title:'El mejor lugar para degustar en familia y amigos!',
+                description:'Es el mejor lugar al que he venido con mi familia, la comida es rica, sirven rápido y te atienden de la mejor manera.'
+            },
+            {
+                id: 2,
+                title:'Un lugar unico e iniligualable',
+                description:'Este es uno de los lugares que me ha gustado visitar debido a la atencion que hemos recibido, recomendado'
+            },
+        ]
+    )
+
+    const changeTestimonial = index => {
+        setIndexTestimonial(index)
+    }
+
     return <>
         <div className="flex justify-between">
             <svg className="" width="187" height="547" viewBox="0 0 187 547" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -8,12 +34,37 @@ const Testimonials = () => {
             </svg>
 
             <div className="flex items-center md:mx-56 space-y-6">
-            <ul className="list-disc list-inside">
-                <p className="font-title text-sm md:text-2xl text-center">“El mejor lugar para degustar en familia y amigos!”</p>
-                <p className="text-center text-sm md:m-5 text-gray-500 md:pr-20 md:pl-20">
-                Es el mejor lugar al que he venido con mi familia, la comida es rica, sirven rápido y te atienden de la mejor manera. 
-                </p>
-            </ul>
+                <ul className="list-disc list-inside">
+                    <p className="font-title text-sm md:text-2xl text-center">{testimonials[testimonial_index-1].title}</p>
+                    <p className="text-center text-sm md:m-5 text-gray-500 md:pr-20 md:pl-20">
+                    {testimonials[testimonial_index-1].description}
+                    </p>
+
+                    <div className="flex justify-center">
+                        <div 
+                        onClick={()=>{
+                            changeTestimonial(1)
+                        }}
+                        className="inline-block text-gray-700 text-center px-4 py-2">
+                            {
+                                testimonial_index == 1 ? 
+                                '' : 
+                                <KeyboardArrowLeft/>
+                            }
+                        </div>
+                        <div className="inline-block text-gray-700 text-center px-4 py-2">{`${testimonial_index} / ${testimonials.length}`}</div>
+                        <div onClick={()=>{
+                            changeTestimonial(2)
+                        }} className="inline-block text-gray-700 text-center px-4 py-2">
+                            {
+                                testimonial_index == 2 ? 
+                                '' : 
+                                <KeyboardArrowRight/>
+                            }
+                        </div>
+                    </div>
+                </ul>
+                
             </div>  
 
             <svg width="214" height="547" viewBox="0 0 214 547" fill="none" xmlns="http://www.w3.org/2000/svg">

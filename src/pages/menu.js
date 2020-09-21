@@ -5,6 +5,7 @@ import Searchbar from '../components/searchbar'
 import axios from 'axios'
 import Footer from '../components/footer'
 
+
 const Menu = () => {
     const [categories, setCategories] = useState([])
     const [menu, setMenu] = useState([])
@@ -16,6 +17,8 @@ const Menu = () => {
         fetchMenu()
         fetchCategories()
         setIsLoading(false)
+
+                
     },[])
 
     const changePage = async page => {
@@ -67,6 +70,7 @@ const Menu = () => {
             <div className="bg-black">
                 <Navbar
                     textcolor="text-white"
+                    active={true}
                 />
                 <div className="mt-12 flex flex-wrap">
                     <div className="w-full md:w-1/2 font-title p-5 text-4xl md:px-24 text-white">
