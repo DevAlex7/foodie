@@ -21,31 +21,21 @@ const Navbar = ({textcolor, active, closeButtonColor, children}) => {
 				</button>
 			</div>
 			</div>
-			{
-				window.location.pathname == '/menu' ? 
-				<div className={`px-2 pt-2 pb-4 ${isOpen ? 'block' : 'hidden'} cursor-pointer md:ml-24 rounded-b-lg bg-white md:bg-transparent font-title sm:flex sm:p-0`}>
-					<Link
-					className={`mt-1 block sm:inline-block px-2 py-1  rounded sm:mt-0 sm:ml-2 ${active ? 'bg-yellow-foodie text-black' : ''  }`}
-					to='/menu'
-					>Menú</Link>
-				</div>
-				:
-				<div className={`px-2 pt-2 pb-4 ${isOpen ? 'block' : 'hidden'} cursor-pointer md:ml-24 rounded-b-lg bg-white md:bg-transparent font-title sm:flex sm:p-0`}>
-					<a onClick={()=>{
-						document.getElementById('about').scrollIntoView({ behavior: "smooth" })
-					}} className="mt-1 block sm:inline-block px-2 py-1 hover:bg-yellow-foodie hover:text-black rounded sm:mt-0 sm:ml-2"> Acerca de </a>
-					<a onClick={()=>{
-						document.getElementById('locations').scrollIntoView({ behavior: "smooth" })
-					}} className="mt-1 block sm:inline-block px-2 py-1  hover:bg-yellow-foodie hover:text-black rounded sm:mt-0 sm:ml-2"> Restaurantes </a>
-					<Link
-					className={`mt-1 block sm:inline-block px-2 py-1  rounded sm:mt-0 sm:ml-2 ${active ? 'bg-yellow-foodie text-black' : ''  }`}
-					to='/menu'
-					>Menú</Link>
-					<a onClick={()=>{
-						document.getElementById('contact').scrollIntoView({ behavior: "smooth" })
-					}} className="mt-1 block sm:inline-block px-2 py-1  hover:bg-yellow-foodie hover:text-black rounded sm:mt-0 sm:ml-2"> Contáctanos </a>
-				</div>
-			}
+			<div className={`px-2 pt-2 pb-4 ${isOpen ? 'block' : 'hidden'} cursor-pointer md:ml-24 rounded-b-lg bg-white md:bg-transparent font-title sm:flex sm:p-0`}>
+				<a onClick={()=>{
+					document.getElementById('about').scrollIntoView({ behavior: "smooth" })
+				}} className="mt-1 block sm:inline-block px-2 py-1 hover:bg-yellow-foodie hover:text-black rounded sm:mt-0 sm:ml-2"> Acerca de </a>
+				<a onClick={()=>{
+					document.getElementById('locations').scrollIntoView({ behavior: "smooth" })
+				}} className="mt-1 block sm:inline-block px-2 py-1  hover:bg-yellow-foodie hover:text-black rounded sm:mt-0 sm:ml-2"> Restaurantes </a>
+				<Link
+				className={`mt-1 block sm:inline-block px-2 py-1  rounded sm:mt-0 sm:ml-2 ${active ? 'bg-yellow-foodie text-black' : ''  }`}
+				to='/menu'
+				>Menú</Link>
+				<a onClick={()=>{
+					document.getElementById('contact').scrollIntoView({ behavior: "smooth" })
+				}} className="mt-1 block sm:inline-block px-2 py-1  hover:bg-yellow-foodie hover:text-black rounded sm:mt-0 sm:ml-2"> Contáctanos </a>
+			</div>
 			
       </div>
     </>
